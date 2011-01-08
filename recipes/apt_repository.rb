@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: swftools
-# Recipe:: default
+# Recipe:: apt_repository
 #
 # Copyright 2011, Fletcher Nichol
 #
@@ -15,10 +15,16 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-if (platform?("ubuntu") && node.platform_version.to_f >= 10.04)
-  include_recipe "swftools::apt_repository"
+include_recipe "apt"
+
+%w{python-software-properties pkg-config}.each do |pkg|
+  package pkg
 end
 
-package "swftools"
+bash "add-ella-animation-apt-repository" do
+  user "root"
+  code %{add-apt-repository ppa:ella-animation/dev}
+  notifies :run, resources(:execute => "apt-get update"), :immediately
+  creates "/etc/apt/sources.list.d/ella-animation-dev-#{node[:lsb][:codename]}.list"
+end

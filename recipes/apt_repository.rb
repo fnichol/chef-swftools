@@ -25,6 +25,6 @@ end
 bash "add-ella-animation-apt-repository" do
   user "root"
   code %{add-apt-repository ppa:ella-animation/dev}
-  notifies :run, resources(:execute => "apt-get update"), :immediately
+  notifies :run, resources(:execute => "apt-get-update"), :immediately
   creates "/etc/apt/sources.list.d/ella-animation-dev-#{node[:lsb][:codename]}.list"
 end

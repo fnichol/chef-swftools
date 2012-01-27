@@ -27,7 +27,7 @@ apt_repository "ella-animation" do
   distribution node[:lsb][:codename]
   components ["main"]
   keyserver "keyserver.ubuntu.com"
-  key "60AF6029"
+  key "4394EBFF"
   action :add
   notifies :run, "execute[apt-get update]", :immediately
 end

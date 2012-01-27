@@ -22,9 +22,12 @@ include_recipe "apt"
   package pkg
 end
 
-bash "add-ella-animation-apt-repository" do
-  user "root"
-  code %{add-apt-repository ppa:ella-animation/dev}
-  notifies :run, resources(:execute => "apt-get-update"), :immediately
-  creates "/etc/apt/sources.list.d/ella-animation-dev-#{node[:lsb][:codename]}.list"
+apt_repository "ella-animation" do
+  uri "http://ppa.launchpad.net/ella-animation/dev/ubuntu"
+  distribution node[:lsb][:codename]
+  components ["main"]
+  keyserver "keyserver.ubuntu.com"
+  key "60AF6029"
+  action :add
+  notifies :run, "execute[apt-get update]", :immediately
 end

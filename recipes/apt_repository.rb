@@ -23,11 +23,12 @@ include_recipe "apt"
 end
 
 apt_repository "ella-animation" do
-  uri "http://ppa.launchpad.net/ella-animation/dev/ubuntu"
-  distribution node[:lsb][:codename]
-  components ["main"]
-  keyserver "keyserver.ubuntu.com"
-  key "4394EBFF"
-  action :add
-  notifies :run, "execute[apt-get update]", :immediately
+  uri           "http://ppa.launchpad.net/ella-animation/dev/ubuntu"
+  distribution  node['lsb']['codename']
+  components    ["main"]
+  keyserver     "keyserver.ubuntu.com"
+  key           "4394EBFF"
+
+  action        :add
+  notifies      :run, "execute[apt-get update]", :immediately
 end

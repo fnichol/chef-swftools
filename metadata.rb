@@ -9,3 +9,5 @@ recipe "swftools",                  "Installs SWFTools."
 recipe "swftools::apt_repository",  "Adds an apt repository (in Ubuntu) containing the swftools pacakge."
 
 supports "ubuntu"
+
+depends "apt"

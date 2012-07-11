@@ -1,4 +1,11 @@
-## 0.2.3 (unreleased)
+## 0.2.5 (unreleased)
+
+
+## 0.2.4 (July 11, 2012)
+
+### Improvements
+
+* Update PPA to guilhem-fr (supports up to ubuntu/precise). ([@fnichol][])
 
 
 ## 0.2.2 (July 10, 2012)

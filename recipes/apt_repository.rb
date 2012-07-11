@@ -22,12 +22,12 @@ include_recipe "apt"
   package pkg
 end
 
-apt_repository "ella-animation" do
-  uri           "http://ppa.launchpad.net/ella-animation/dev/ubuntu"
+apt_repository "guilhem-fr" do
+  uri           "http://ppa.launchpad.net/guilhem-fr/swftools/ubuntu"
   distribution  node['lsb']['codename']
   components    ["main"]
   keyserver     "keyserver.ubuntu.com"
-  key           "4394EBFF"
+  key           "97F87FBF"
 
   action        :add
   notifies      :run, "execute[apt-get update]", :immediately

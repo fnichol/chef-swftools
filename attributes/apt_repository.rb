@@ -16,24 +16,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name      = node['swftools']['repository']['name']
-uri       = node['swftools']['repository']['url']
-keyserver = node['swftools']['keyserver']['url']
-key       = node['swftools']['keyserver']['key']
+default['swftools']['repository']['name'] = "guilhem-fr"
+default['swftools']['repository']['url'] = "http://ppa.launchpad.net/guilhem-fr/swftools/ubuntu"
 
-include_recipe "apt"
-
-%w{python-software-properties pkg-config}.each do |pkg|
-  package pkg
-end
-
-apt_repository name do
-  uri           uri
-  distribution  node['lsb']['codename']
-  components    ["main"]
-  keyserver     keyserver
-  key           key
-
-  action        :add
-  notifies      :run, "execute[apt-get update]", :immediately
-end
+default['swftools']['keyserver']['url'] = "keyserver.ubuntu.com" #use hkp://keyserver.ubuntu.com:80 when behind a firewall
+default['swftools']['keyserver']['key'] = "97F87FBF"

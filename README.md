@@ -107,7 +107,25 @@ Adds an apt repsitory (in Ubuntu) containing the swftools package. The
 
 ## <a name="attributes"></a> Attributes
 
-There are **no** configurable attributes in this cookbook.
+### <a name="attributes-repository"></a> repository
+
+The apt repository *url* and *name* which are used to retrieve the swftools package.
+
+The defaults are
+
+        ['repository']['name'] = "guilhem-fr"
+        ['repository']['url'] = "http://ppa.launchpad.net/guilhem-fr/swftools/ubuntu"
+
+### <a name="attributes-keyserver"></a> keyserver
+
+The keyserver *url* and *key* which are used to validate the apt repository.
+
+The defaults are
+
+        ['keyserver']['url'] = "keyserver.ubuntu.com"
+        ['keyserver']['key'] = "97F87FBF"
+
+Change the url to `"hkp://keyserver.ubuntu.com:80"` when having firewall issues
 
 ## <a name="lwrps"></a> Resources and Providers
 

@@ -16,10 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name      = node['swftools']['repository']['name']
-uri       = node['swftools']['repository']['url']
-keyserver = node['swftools']['keyserver']['url']
-key       = node['swftools']['keyserver']['key']
+repo_name      = node['swftools']['repository']['name']
+repo_uri       = node['swftools']['repository']['url']
+keyserver_url  = node['swftools']['keyserver']['url']
+keyserver_key  = node['swftools']['keyserver']['key']
 
 include_recipe "apt"
 
@@ -27,12 +27,12 @@ include_recipe "apt"
   package pkg
 end
 
-apt_repository name do
-  uri           uri
+apt_repository repo_name do
+  uri           repo_uri
   distribution  node['lsb']['codename']
   components    ["main"]
-  keyserver     keyserver
-  key           key
+  keyserver     keyserver_url
+  key           keyserver_key
 
   action        :add
   notifies      :run, "execute[apt-get update]", :immediately

@@ -19,6 +19,8 @@
 
 if platform?("ubuntu") && node['platform_version'].to_f >= 10.04
   include_recipe "swftools::apt_repository"
+else
+  include_recipe "swftools::yum_repository"
 end
 
 package "swftools"

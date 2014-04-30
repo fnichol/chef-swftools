@@ -10,6 +10,8 @@ Simply include `recipe[swftools]` to install SWFTools.
 
 ## <a name="requirements"></a> Requirements
 
+
+
 ### <a name="requirements-chef"></a> Chef
 
 Tested on 10.12.0 but newer and older version should work just fine.
@@ -21,12 +23,15 @@ The following platforms have been tested with this cookbook, meaning that the
 recipes run on these platforms without error:
 
 * ubuntu
+* centos
+* rhel (untested)
+
 
 Please [report][issues] any additional platforms so they can be added.
 
 ### <a name="requirements-cookbooks"></a> Cookbooks
 
-There are **no** external cookbook dependencies.
+* apt yum yum-epel yum-repoforge
 
 ## <a name="installation"></a> Installation
 

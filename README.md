@@ -130,7 +130,8 @@ Ideally create a topic branch for every separate change you make.
 
 Author:: [Fletcher Nichol][fnichol] (<fnichol@nichol.ca>) [![endorse](http://api.coderwall.com/fnichol/endorsecount.png)](http://coderwall.com/fnichol)
 
-Centos support:
+Centos support
+
 Author:: [Darren Hartford][dhartford] (<binarymonk01@gmail.com>) [![endorse](http://api.coderwall.com/dhartford/endorsecount.png)](http://coderwall.com/dhartford)
 
 Copyright 2011, Fletcher Nichol

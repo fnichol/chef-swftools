@@ -132,7 +132,7 @@ Author:: [Fletcher Nichol][fnichol] (<fnichol@nichol.ca>) [![endorse](http://api
 
 Centos support
 
-Author:: [Darren Hartford][dhartford] (<binarymonk01@gmail.com>) [![endorse](http://api.coderwall.com/dhartford/endorsecount.png)](http://coderwall.com/dhartford)
+Author:: Darren Hartford [![endorse](http://api.coderwall.com/dhartford/endorsecount.png)](http://coderwall.com/dhartford)
 
 Copyright 2011, Fletcher Nichol
 

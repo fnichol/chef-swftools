@@ -1,8 +1,7 @@
 #
 # Cookbook Name:: swftools
-# Recipe:: default
+# Recipe:: yum_repository
 #
-# Copyright 2011, Fletcher Nichol
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,12 +14,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-if platform?("ubuntu") && node['platform_version'].to_f >= 10.04
-  include_recipe "swftools::apt_repository"
-else
-  include_recipe "swftools::yum_repository"
-end
+node.default['yum']['rpmforge']['enabled'] = true
+node.default['yum']['rpmforge']['managed'] = true
 
-package "swftools"
+include_recipe 'yum-repoforge'
+#https://github.com/opscode-cookbooks/yum-repoforge
+
+
+ yum_repository 'rpmforge' do
+    mirrorlist 'http://mirrorlist.repoforge.org/el6/mirrors-rpmforge'
+    description 'RHEL $releasever - RPMforge.net - dag'
+    enabled true
+    gpgcheck true
+    gpgkey 'http://apt.sw.be/RPM-GPG-KEY.dag.txt'
+  end
